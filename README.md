@@ -1,43 +1,46 @@
-# Next.js with TypeScript example
+# Advanced Sample Hardhat Project
 
-## How to use
+This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
 
-<!-- #default-branch-switch -->
+Try running some of the following tasks:
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs-with-typescript
-cd nextjs-with-typescript
+```shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+npx hardhat help
+REPORT_GAS=true npx hardhat test
+npx hardhat coverage
+npx hardhat run scripts/deploy.ts
+TS_NODE_FILES=true npx ts-node scripts/deploy.ts
+npx eslint '**/*.{js,ts}'
+npx eslint '**/*.{js,ts}' --fix
+npx prettier '**/*.{json,sol,md}' --check
+npx prettier '**/*.{json,sol,md}' --write
+npx solhint 'contracts/**/*.sol'
+npx solhint 'contracts/**/*.sol' --fix
 ```
 
-Install it and run:
+# Etherscan verification
 
-```sh
-npm install
-npm run dev
+To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
+
+In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+
+```shell
+hardhat run --network ropsten scripts/sample-script.ts
 ```
 
-or:
+Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
 
-<!-- #default-branch-switch -->
+```shell
+npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
+```
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/nextjs-with-typescript)
+# Performance optimizations
 
-## The idea behind the example
-
-The project uses [Next.js](https://github.com/zeit/next.js), which is a framework for server-rendered React apps.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5. If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## The link component
-
-Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
-The example folder provides adapters for usage with MUI.
-More information [in the documentation](https://mui.com/guides/routing/#next-js).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
+For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
