@@ -1,0 +1,38 @@
+{
+  "name": "nextjs-with-typescript",
+  "version": "5.0.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/material": "latest",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.2",
+    "axios": "^0.22.0",
+    "chai": "^4.3.4",
+    "clsx": "latest",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.7",
+    "ipfs-http-client": "^53.0.1",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "web3modal": "^1.9.4"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "hardhat": "^2.6.5",
+    "typescript": "latest"
+  }
+}
