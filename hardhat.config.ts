@@ -10,7 +10,7 @@ import "solidity-coverage";
 dotenv.config();
 const projectId = `259fbeca940140898372c1f6f616e884`;
 
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+task("accounts", "Prints the list of accounts", async (_, hre) => {
   const accounts = await hre.ethers.getSigners();
 
   for (const account of accounts) {
