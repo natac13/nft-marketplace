@@ -13,12 +13,7 @@ module.exports = {
     },
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  extends: [
-    'standard',
-    // 'plugin:prettier/recommended',
-    'prettier',
-    'plugin:node/recommended',
-  ],
+  extends: ['standard', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,

@@ -21,6 +21,13 @@
     "isolatedModules": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./scripts", "./test"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "./scripts",
+    "./test",
+    "./typechain"
+  ],
   "files": ["./hardhat.config.ts"]
 }
