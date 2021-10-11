@@ -42,6 +42,7 @@ export default function Index() {
       data.map(async (item) => {
         const tokenUri = await tokenContract.tokenURI(item.tokenId)
         const meta = await axios.get(tokenUri)
+        console.log({ meta })
         const price = ethers.utils.formatUnits(item.price.toString(), 'ether')
         const returnItem = {
           price,
@@ -117,8 +118,8 @@ export default function Index() {
           {nfts.map((nft, i) => (
             <Grid item xs={12} sm={4} lg={3} key={nft.name}>
               <Card>
-                <CardMedia src={nft.image}></CardMedia>
-                <CardHeader>{nft.name}</CardHeader>
+                <CardMedia component="img" image={nft.image}></CardMedia>
+                <CardHeader title={nft.name} />
                 <CardContent>{nft.description}</CardContent>
                 <CardActions>
                   <Typography>{nft.price} Matic</Typography>
